@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Simple Savings</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>💰 Simple Savings</h1>
+    <p class="subtitle">Set goals. Log deposits. Watch your progress.</p>
+  </header>
+
+  <main>
+    <section class="new-goal">
+      <h2>New goal</h2>
+      <form id="goal-form">
+        <input type="text" id="goal-name" placeholder="e.g. Emergency fund" required maxlength="80" />
+        <input type="number" id="goal-target" placeholder="Target amount ($)" min="1" step="0.01" required />
+        <button type="submit">Add goal</button>
+      </form>
+      <p id="goal-error" class="error"></p>
+    </section>
+
+    <section id="goals-list"></section>
+  </main>
+
+  <template id="goal-template">
+    <article class="goal-card">
+      <div class="goal-header">
+        <h3 class="goal-name"></h3>
+        <button class="delete-goal" title="Delete goal">✕</button>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <p class="goal-amounts"></p>
+
+      <form class="txn-form">
+        <input type="number" class="txn-amount" placeholder="Amount ($)" step="0.01" required />
+        <input type="text" class="txn-note" placeholder="Note (optional)" maxlength="120" />
+        <button type="submit" class="txn-deposit">Deposit</button>
+        <button type="button" class="txn-withdraw">Withdraw</button>
+      </form>
+
+      <details class="txn-history">
+        <summary>History</summary>
+        <ul class="txn-list"></ul>
+      </details>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
