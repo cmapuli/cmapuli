@@ -1,0 +1,9 @@
+{
+  "appId": "com.cmapuli.savings",
+  "appName": "Simple Savings",
+  "webDir": "public",
+  "server": {
+    "url": "https://cmapuli.onrender.com",
+    "cleartext": false
+  }
+}
