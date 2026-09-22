@@ -33,3 +33,14 @@ A `savings.db` SQLite file is created automatically in the project root on first
 | POST   | `/api/goals/:id/transactions` | Add a transaction `{ amount_cents, note? }` (negative `amount_cents` = withdrawal) |
 
 All amounts are stored in cents as integers to avoid floating-point rounding issues.
+
+## Deploying to Render
+
+This app needs a Node.js runtime (it has a server and a SQLite file), so it can't be hosted on GitHub Pages, which only serves static files. `render.yaml` in this repo configures it as a [Render](https://render.com) Blueprint.
+
+1. Sign in to Render and go to **New > Blueprint**.
+2. Connect the `cmapuli/cmapuli` repository and select the `main` branch.
+3. Render reads `render.yaml` automatically and provisions a free web service (`simple-savings-app`) with `npm install` as the build command and `npm start` as the start command.
+4. Deploy. Render assigns a public URL (e.g. `https://simple-savings-app.onrender.com`).
+
+**Caveat:** Render's free plan uses an ephemeral filesystem, so the `savings.db` SQLite file is wiped on every redeploy or restart. Fine for demos; for real persistence, add a paid [Render Disk](https://render.com/docs/disks) mounted at the project root, or swap in a managed database.
