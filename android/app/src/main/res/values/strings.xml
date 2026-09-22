@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Simple Savings</string>
+    <string name="title_activity_main">Simple Savings</string>
+    <string name="package_name">com.cmapuli.savings</string>
+    <string name="custom_url_scheme">com.cmapuli.savings</string>
+</resources>

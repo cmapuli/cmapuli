@@ -44,3 +44,18 @@ This app needs a Node.js runtime (it has a server and a SQLite file), so it can'
 4. Deploy. Render assigns a public URL (e.g. `https://simple-savings-app.onrender.com`).
 
 **Caveat:** Render's free plan uses an ephemeral filesystem, so the `savings.db` SQLite file is wiped on every redeploy or restart. Fine for demos; for real persistence, add a paid [Render Disk](https://render.com/docs/disks) mounted at the project root, or swap in a managed database.
+
+## Android app
+
+The `android/` directory is a [Capacitor](https://capacitorjs.com/) wrapper that loads the live app (`https://cmapuli.onrender.com`, configured in `capacitor.config.json`) inside a native WebView — no offline bundling, so it always reflects the deployed site.
+
+A debug APK is built automatically by [`.github/workflows/build-apk.yml`](.github/workflows/build-apk.yml) on every push to `main` that touches `android/`, `public/`, or `capacitor.config.json` (or manually via the "Run workflow" button on the Actions tab). Download it from the finished run's **Artifacts** section (`simple-savings-debug-apk`).
+
+To build locally instead (requires the Android SDK):
+
+```bash
+npx cap sync android
+cd android && ./gradlew assembleDebug
+```
+
+The unsigned debug APK lands at `android/app/build/outputs/apk/debug/app-debug.apk`.
