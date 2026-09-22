@@ -1,0 +1,16 @@
+{
+  "name": "simple-savings-app",
+  "version": "1.0.0",
+  "description": "A simple savings tracker: create goals, log deposits and withdrawals, and watch your progress.",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
